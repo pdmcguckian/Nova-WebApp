@@ -1,6 +1,11 @@
 {% extends "main/Header.html" %}
 
 {% block content %}
+<head>
+	{{ form.media }}
+</head>
+<body>
+	<div class="container">
 {% for p in project %}
 {% for c in content %}
 		
@@ -41,4 +46,6 @@
 
 {% endfor %}
 {% endfor %}
+</div>
+</body>
 {% endblock %}

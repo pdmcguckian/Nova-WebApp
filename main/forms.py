@@ -53,5 +53,5 @@ class StructuredProjectForm(ModelForm):
         model = StructuredProjectCode
         fields = ['code']
         widgets = {
-            'code': AceWidget(mode='python', theme='crimson_editor', width="500px", height="300px",),
+            'code': AceWidget(mode='python', theme='crimson_editor', width="700px", height="600px",),
         }
