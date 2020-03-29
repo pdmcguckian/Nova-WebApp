@@ -9,7 +9,7 @@
   <tbody>
     <tr>
 		{% if user.is_authenticated %}
-		<td width = "50%"><h4>Hey {{user.username}}.</h4>
+		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
 		{% else %}
 		<td width = "50%"><h4>Log in to start.</h4>
 		{% endif %}

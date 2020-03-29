@@ -88,12 +88,15 @@ def personalproject(request):
             project_id = request.POST["project-id"]
             project = PersonalProject.objects.get(id = project_id)
             
-            form = EditProjectForm(initial={'title': project.title, 'description': project.description, 'code': project.code})
+            form = EditProjectForm(instance=project)
             return render(request,
                     "main/personalproject.html",
-                    {"form":form})
+                    {"form":form, "projid":project_id})
         else:
-            form = EditProjectForm(request.POST)
+            project_id = request.POST["project-save-id"]
+            print(project_id)
+            project = PersonalProject.objects.get(id = project_id)
+            form = EditProjectForm(request.POST, instance=project)
             if form.is_valid():
                 form.save()
                 title=form.cleaned_data.get("title")
@@ -111,7 +114,7 @@ def personalproject(request):
 def newpersonalproject(request):
     form = NewProjectForm(request.POST)
     if form.is_valid:
-        form.instance.code = " "
+        form.instance.code = ""
         form.instance.user = request.user
         form.save()
         
