@@ -1,0 +1,20 @@
+{% extends "main/Header.html" %}
+
+{% block content %}
+	<br>
+
+	<div class="container">
+		<form method="POST">
+
+			{% csrf_token %}
+			{{form}}
+			<br>
+			<br>
+			<button type="submit" class="btn">Login</button>
+
+		</form>
+		
+		<p>If you don't have an account, <a href="/register/"><strong>register</strong></a>.</p>
+	
+	</div>
+{% endblock %}

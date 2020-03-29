@@ -1,0 +1,18 @@
+{% extends "main/Header.html" %}
+
+{% block content %}
+	<br>
+
+	<div class="container">
+		<form method="POST">
+
+			{% csrf_token %}
+			{{form}}
+			<br>
+			<br>
+			<button type="submit" class="btn">Create Project</button>
+
+		</form>
+	
+	</div>
+{% endblock %}
