@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import StructuredProject, PersonalProject, StructuredProjectContent, StructuredProjectCode
+from .models import PersonalProject, StructuredProjectContent, StructuredProjectCode, StructuredProject
 # Register your models here.
 
 class StructuredProjectAdmin(admin.ModelAdmin):
