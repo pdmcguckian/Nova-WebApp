@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import StructuredProject, PersonalProject, StructuredProjectContent
+from .models import PersonalProject, StructuredProjectContent, StructuredProject
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
