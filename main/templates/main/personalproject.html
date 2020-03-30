@@ -2,7 +2,10 @@
 
 {% block content %}
 	<br>
-
+	<head>
+		{{ form.media }}
+	</head>
+	<body>
 	<div class="container">
 		
 		<form method="POST">
@@ -11,9 +14,10 @@
 			{{form.as_p}}
 			<br>
 			<br>
-			<button type="submit" class="btn">Save</button>
+			<button type="submit" class="waves-effect waves-light btn" name="project-save-id" value={{ projid }}>Save</button>
 
 		</form>
 	
 	</div>
+</body>
 {% endblock %}

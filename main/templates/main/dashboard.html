@@ -9,7 +9,7 @@
   <tbody>
     <tr>
 		{% if user.is_authenticated %}
-		<td width = "50%"><h4>Hey {{user.username}}.</h4>
+		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
 		{% else %}
 		<td width = "50%"><h4>Log in to start.</h4>
 		{% endif %}
@@ -74,6 +74,7 @@
 	
 	<div class='container'>
 		<h4>Personal Projects</h4>
+		
 		<p>Get creative and make something amazing! When your done enter it into one of our competeitions for the chance to win amazing prizes.</p>
 		
 
@@ -101,7 +102,7 @@
 					  <div class="card-action">
 						<form action="project" method="POST">
 							{% csrf_token %}
-							<button class="btn" type="submit" name="project-id" value={{ project.id }}>Edit Project</button>
+							<button class="waves-effect waves-light btn" type="submit" name="project-id" value={{ project.id }}>Edit Project</button>
 						</form>
 					  </div>
 					</div>
