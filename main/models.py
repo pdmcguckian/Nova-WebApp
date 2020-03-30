@@ -5,9 +5,8 @@ from django.conf import settings
 
 # Create your models here.
 class StructuredProject(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     description = models.TextField()
-    published = models.DateTimeField("date published", default=datetime.now())
     slug = models.CharField(max_length=200)
 
     def __str__(self):
