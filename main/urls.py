@@ -24,6 +24,7 @@ urlpatterns = [
     path("logout/", views.logout_request, name="logout"),
     path("login/", views.login_request, name="login"),
     path("project", views.personalproject, name="personalproject"),
-    path("<single_slug>", views.strucutedproject, name="single_slug"),
+    path("<single_slug>", views.structuredproject, name="structuredproject"),
+    path("<single_slug>/edit", views.structuredproject_edit, name="structuredprojectedit"),
 
 ]

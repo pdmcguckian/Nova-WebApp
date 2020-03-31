@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import PersonalProject, StructuredProjectContent, StructuredProject
+from .models import PersonalProject, StructuredProjectContent, StructuredProject, StructuredProjectCode
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
@@ -122,46 +122,62 @@ def newpersonalproject(request):
         messages.error(request, "Error")
     return
 
-    """
-    if request.method == "POST":
-        form = NewProjectForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.save()
-            return redirect('main:dashboard')
-        else:
-            messages.error(request, "Error")
+@login_required(login_url='/login/')
+def structuredproject(request, single_slug):
+    projects = [c.slug for c in StructuredProject.objects.all()]
+    if single_slug in projects:
+        project = StructuredProject.objects.get(slug = single_slug)
+        project_steps = StructuredProjectContent.objects.filter(slug=single_slug)
+        project_user_steps = StructuredProjectCode.objects.filter(user=request.user, project=project)
+        user_step = max([c.step for c in project_user_steps] + [0,]) + 1
+        displayed_steps = [c for c in project_steps if c.step<= user_step]
+
+        return render(request=request,
+                    template_name="main/structuredprojectlist.html",
+                    context={"project": project, "content": displayed_steps,})
+
     else:
-        form = NewProjectForm()
-
-    return render(request,
-                "main/newpersonalproject.html",
-                {"form":form})
-"""
-
-    return HttpResponse(f"Error")
+        return HttpResponse(f"Error")
 
 @login_required(login_url='/login/')
-def strucutedproject(request, single_slug):
-    projects = [c.slug for c in StructuredProject.objects.all()]
+def structuredproject_edit(request, single_slug):
+    project = StructuredProject.objects.get(slug = single_slug)
+    project_steps = StructuredProjectContent.objects.filter(slug=single_slug)
+    project_user_steps = StructuredProjectCode.objects.filter(user=request.user, project=project)
 
     if request.method == "POST":
-        form = StructuredProjectForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.save()
-            return render(request=request,
-                template_name="main/structuredproject.html",
-                context={"project": StructuredProject.objects.filter(slug=single_slug), "content": StructuredProjectContent.objects.filter(slug=single_slug), "form":form})
+        step_no = int(request.POST['step_no'])
+        step_content = project_steps.get(step=step_no)
+
+        if 'save' in request.POST:
+            if project_user_steps.filter(step=step_no)[::1] != []:
+                print('overwriting saved code')
+                prev_instance = project_user_steps.get(step=(step_no))
+                form = StructuredProjectForm(request.POST, instance=prev_instance)
+            else:
+                form = StructuredProjectForm(request.POST)
+            
+            if form.is_valid():
+                form.instance.user = request.user
+                form.instance.project = project
+                form.instance.step = step_no
+                form.save()
+                form = StructuredProjectForm(instance = form.instance)
+
         else:
-            messages.error(request, "Error")
-    else:
-        form = StructuredProjectForm()
-                
-    if single_slug in projects:
-      return render(request=request,
-                template_name="main/structuredproject.html",
-                context={"project": StructuredProject.objects.filter(slug=single_slug), "content": StructuredProjectContent.objects.filter(slug=single_slug), "form":form})
+            if project_user_steps.filter(step=step_no)[::1] != [] and 'reset' not in request.POST:
+                print('using saved code')
+                step_code = project_user_steps.get(step=(step_no)).code
+            elif step_content.default_code == "":
+                print('default code empty, using last user code')
+                step_code = project_user_steps.get(step=(step_no-1)).code
+            else:
+                print('using default code')
+                step_code = step_content.default_code
+            form = StructuredProjectForm(initial={'code' : step_code })
 
+        return render(request=request,
+            template_name="main/structuredproject.html",
+            context={"project": project, "content": step_content, "form":form})
 
-    return HttpResponse(f"Error")
+    return redirect('/'+single_slug)

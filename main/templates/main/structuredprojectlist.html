@@ -1,0 +1,61 @@
+{% extends "main/Header.html" %}
+
+
+{% block content %}
+
+
+
+<body>
+	
+	<nav>
+		<div class="nav-wrapper blue-grey lighten-2">
+		  <div class="col s12">
+			<div class="container">
+			<a href="/" class="breadcrumb">Dashboard</a>
+			<a href="#!" class="breadcrumb">{{ project.title }}</a>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<div class="container">
+
+		<h4>{{ project.title }} - Steps {{ edit }}</h4>
+		<p>
+			{{ project.description }}
+		</p>
+
+		
+		<br>
+		
+
+		<ul class="collapsible popout">
+			{% for c in content %}
+			<li>
+				
+			<div class="collapsible-header">
+				<div class="row collapsible-row">
+					<div class="col s6 "><h5>{{ c.step }}</h5></div>
+					
+				  	<div class="col s6 ">
+						  <div class="right-align">
+						{% with project.slug|add:"/edit" as edit %}
+						<form action={{ edit }} method="POST">
+							{% endwith %}
+							{% csrf_token %}
+							<button class="waves-effect waves-light btn-floating btn-large" type="submit" name="step_no" value={{ c.step }}><i class="material-icons right">arrow_forward</i></button>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			  <div class="collapsible-body"><span>{{ c.instructions }}</span></div>
+			  
+			</li>
+			{% endfor %}
+		</ul>
+
+</div>
+</body>
+
+{% endblock %}

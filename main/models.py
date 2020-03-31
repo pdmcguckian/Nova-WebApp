@@ -17,7 +17,7 @@ class StructuredProjectContent(models.Model):
     step = models.IntegerField()
     video_link = models.CharField(max_length=200)
     instructions = models.TextField()
-    default_code = models.TextField()
+    default_code = models.TextField(blank=True)
 
     def __str__(self):
         return str(self.step)
@@ -33,5 +33,7 @@ class PersonalProject(models.Model):
 
 class StructuredProjectCode(models.Model):
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    step = models.IntegerField(default=1)
     project = models.ForeignKey(StructuredProject, default=1, on_delete=models.CASCADE)
     code = models.TextField()
+    modified = models.DateTimeField(auto_now=True)

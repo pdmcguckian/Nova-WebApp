@@ -4,7 +4,7 @@ from .models import PersonalProject, StructuredProjectContent, StructuredProject
 
 class StructuredProjectAdmin(admin.ModelAdmin):
     fieldsets = [
-                ("Details", {"fields":["title", "published", "description", "slug"]}),
+                ("Details", {"fields":["title", "description", "slug"]}),
                 ("Content", {"fields":[]}),
                 ]
 
@@ -18,7 +18,7 @@ class PersonalProjectAdmin(admin.ModelAdmin):
 
 
 class StructuredProjectCodeAdmin(admin.ModelAdmin):
-    fields = ["user", "project", "code"]
+    fields = ["user", "project", "code", "step"]
 
 
 admin.site.register(StructuredProject, StructuredProjectAdmin)

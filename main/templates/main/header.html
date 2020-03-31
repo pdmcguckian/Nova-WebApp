@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Dashboard</title>
-</head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -13,7 +12,27 @@
       $('.modal').modal();
     });
 </script>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.collapsible');
+		var instances = M.Collapsible.init(elems, options);
+	  });
+	
+	  // Or with jQuery
+	
+	  $(document).ready(function(){
+		$('.collapsible').collapsible();
+	  });
 </script>
+<style>
+	.collapsible-row {
+		flex: auto;
+		display: block;
+	}
+</style>
+</head>
+
+
 
 	
 <body>
