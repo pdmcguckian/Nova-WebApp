@@ -9,7 +9,7 @@
   <tbody>
     <tr>
 		{% if user.is_authenticated %}
-		<td width = "50%"><h4>Hey {{user.first_name}} - your device pair number is <b>{{ user.id }}</b>.</h4>
+		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
 		{% else %}
 		<td width = "50%"><h3>Log in to start.</h3>
 		{% endif %}
@@ -26,8 +26,10 @@
 			  <td>&nbsp;</td>
 			</tr>
 			<tr height="33.3%">
-			  <td colspan="3"><div class = "right-align pin-bottom">
-			<a class="btn z-depth-0 blue-grey" style="border-radius: 20px" href="">Customise your device</a>
+			  <td colspan="3"><div style="  display: flex; justify-content: space-between;">
+			<a class="btn z-depth-0 blue-grey modal-trigger"  style="border-radius: 20px" href="#pairdevice">Pair Device</a>
+			<a class="btn z-depth-0 blue-grey"  style="border-radius: 20px" href="">Customise Device</a>
+			<a class="btn z-depth-0 blue-grey"  style="border-radius: 20px" href="">Manage Friends</a>
 		</div>
 			  </tr>
 
@@ -99,7 +101,7 @@
 				  <p class="white-text">Get creative and make something amazing! When your done enter it into one of our competeitions for the chance to win amazing prizes.</p>
 				  </div>
 			<div class="card-action">
-				<a class="btn z-depth-0 white blue-grey-text modal-trigger" style="border-radius: 20px" href="#modal1">New Project</a>
+				<a class="btn z-depth-0 white blue-grey-text modal-trigger" style="border-radius: 20px" href="#newproject">New Project</a>
 			</div>
 			  </div>
 		  </div>
@@ -128,9 +130,10 @@
 		
 	</div>
 
+</div>
 
   <!-- New project modal -->
-  <div id="modal1" class="modal">
+  <div id="newproject" class="modal">
     <div class="modal-content">
 		<form method="POST" >
 
@@ -145,5 +148,23 @@
     </div>
   </div>
 	
-</div>
+
+<!-- Pair Device modal -->
+  <div id="pairdevice" class="modal">
+    <div class="modal-content">
+		<h4>{{ user.first_name }}, follow the instructions to pair a new device to your account.</h4>
+		<br>
+		<div style="width: 50%">
+			<ol>
+				<h5><li>Power on device.</li></h5>
+				<h5><li>Press "re-pair device" located in the top left courner.</li></h5>
+				<h5><li>Point device at the QR Code.</li></h5>
+				<h5><li>Confirm details and continue.</li></h5>
+			</ol>
+		</div>
+		<br>
+		<p>QR Code failed? Press pair maually and input your unique pair id ({{ user.id }}). <b>Don't share your pair id with anyone.</b></p>
+    </div>
+  </div>
+
 {% endblock %}
