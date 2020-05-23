@@ -11,6 +11,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect('main:login')
+
     if request.method == "POST":
         newpersonalproject(request)
         return redirect('/')

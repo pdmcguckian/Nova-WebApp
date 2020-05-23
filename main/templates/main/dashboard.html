@@ -8,11 +8,7 @@
 	<table>
   <tbody>
     <tr>
-		{% if user.is_authenticated %}
 		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
-		{% else %}
-		<td width = "50%"><h3>Log in to start.</h3>
-		{% endif %}
 		<table border="0">
 		  <tbody>
 			<tr height="33.3%">

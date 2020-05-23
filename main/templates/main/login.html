@@ -2,19 +2,41 @@
 
 {% block content %}
 	<br>
-
 	<div class="container">
-		<form method="POST">
-
-			{% csrf_token %}
-			{{form}}
-			<br>
-			<br>
-			<button type="submit" class="btn">Login</button>
-
-		</form>
 		
-		<p>If you don't have an account, <a href="/register/"><strong>register</strong></a>.</p>
-	
+		<div class="row">
+			
+			
+		  <div class="col s12 m6">
+		  
+			  <h4>Welcome.</h4>
+			  <p>This is the Nova online platform. Here you can code your Nova device both by following our tutorials or doing your own projects.</p>
+			  <p>Your project can be shared with freinds on the platform; or it can be entered into our competitions for a chance to with amazing prizes; we can't wait to see what you come up with.</p>
+			  <p>This platfrom is for Nova device owners only. If you are new hit <a href="/register/"><strong>register</strong></a> to create a new account. <b>If you are under the age of 13 your parent or guardian must set up the account for you.</b></p>
+			
+		  </div>
+			
+		  <div class="col s12 m6">
+			<div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
+			  <div class="col">
+				<h4>Login</h4>	 
+				  
+				<form method="POST">
+					{% csrf_token %}
+					{{form}}
+					<br>
+					<br>
+					<div class="card-action" style="display: block; text-align: right;">
+						<button type="submit" class="btn z-depth-0 blue-grey"  style="border-radius: 20px">Let's Go!</button>
+					</div>
+				</form>
+			  
+			  </div>
+			</div>	  
+		  </div>
+		</div>
 	</div>
+{% load static %}
+<img width="100%" src="{% static "LoginCover.jpg" %}" alt="My image"> 
+
 {% endblock %}
