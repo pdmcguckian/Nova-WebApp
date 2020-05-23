@@ -152,18 +152,27 @@
 <!-- Pair Device modal -->
   <div id="pairdevice" class="modal">
     <div class="modal-content">
-		<h4>{{ user.first_name }}, follow the instructions to pair a new device to your account.</h4>
+		<h4>{{ user.first_name }}, your unique pair ID is <b>{{ user.id }}</b>. Follow the instructions to pair a new device to your account.</h4>
 		<br>
-		<div style="width: 50%">
-			<ol>
-				<h5><li>Power on device.</li></h5>
-				<h5><li>Press "re-pair device" located in the top left courner.</li></h5>
-				<h5><li>Point device at the QR Code.</li></h5>
-				<h5><li>Confirm details and continue.</li></h5>
-			</ol>
-		</div>
+			<div class="row">
+				<div class="col s12 m6">
+					<ol>
+					<h5><li>Power on device.</li></h5>
+					<h5><li>Press "re-pair device" located in the top left courner.</li></h5>
+					<h5><li>Point device at the QR Code.</li></h5>
+					<h5><li>Confirm details and continue.</li></h5>
+					</ol>
+				</div>
+				<div class="col s12 m6" style="text-align: center; display: block;">
+				
+					{% load static %}
+				<img width="100%" src="{% static "QR.png" %}" alt="My image" style="max-width: 220px"> 
+				
+				</div>
+			</div>
+		
 		<br>
-		<p>QR Code failed? Press pair maually and input your unique pair id ({{ user.id }}). <b>Don't share your pair id with anyone.</b></p>
+		<p>QR scan failed? Press pair maually and input your unique pair id. <b>Don't share your pair id with anyone.</b></p>
     </div>
   </div>
 
