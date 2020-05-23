@@ -4,16 +4,16 @@
 
 
 	
-	<div class="container">
-	<table border="1">
+	<div style="padding-left: 5%; padding-right: 5%">
+	<table>
   <tbody>
     <tr>
 		{% if user.is_authenticated %}
 		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
 		{% else %}
-		<td width = "50%"><h4>Log in to start.</h4>
+		<td width = "50%"><h3>Log in to start.</h3>
 		{% endif %}
-		<table border="1">
+		<table border="0">
 		  <tbody>
 			<tr height="33.3%">
 			  <td>&nbsp;</td>
@@ -45,18 +45,19 @@
 </table>
 	</div>
 	
+<div style="background-color: #fafafa; width: 100%; padding-top: 4px">
 	<div class="container">
-	<h4>Projects</h4>
+	<h4>Tutorials</h4>
 	<p>Why not try one of our projects? Learn a bit about coding and see what your device is capable of! Maybe challenge a friend to see who can make theirs the best?</p>
     
 	<div class="row">
         {% for project in structuredprojects %}
         <div class="col s12 m6">
             <a href={{ project.slug }} style="color: #000">
-                <div class="card small orange">
+                <div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
                   <div class="col" style="width: 50%">
-                    <h3 class="white-text">{{ project.title }}.</h3>
-                    <p class="white-text">{{ project.description }}<p>
+                    <h4 class="gray-text">{{ project.title }}.</h4>
+                    <p class="gray-text">{{ project.description }}<p>
                   </div>
               
                   <div class="col" style="width: 50%; height: 100%; background-color: black;">
@@ -68,8 +69,7 @@
         {% endfor %}
         </div>
         
-    </div>
-    </div>
+	</div>
 	
 	
 	<div class='container'>
@@ -96,7 +96,7 @@
 			<div class="col s12 m4">
 					<div class="card small orange">
 					  <div class="col">
-						<h3 class="white-text">{{ project.title }}</h3>
+						<h4 class="white-text">{{ project.title }}</h4>
 						<p class="white-text">{{ project.description }}<p>
 					  </div>
 					  <div class="card-action">
@@ -134,3 +134,5 @@
   </div>
 	
 {% endblock %}
+
+</div>
