@@ -9,7 +9,7 @@
   <tbody>
     <tr>
 		{% if user.is_authenticated %}
-		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
+		<td width = "50%"><h4>Hey {{user.first_name}} - your device pair number is <b>{{ user.id }}</b>.</h4>
 		{% else %}
 		<td width = "50%"><h3>Log in to start.</h3>
 		{% endif %}
@@ -27,7 +27,7 @@
 			</tr>
 			<tr height="33.3%">
 			  <td colspan="3"><div class = "right-align pin-bottom">
-			<a class="btn brand blue-grey" href="">Customise your device</a>
+			<a class="btn z-depth-0 blue-grey" style="border-radius: 20px" href="">Customise your device</a>
 		</div>
 			  </tr>
 
@@ -47,17 +47,29 @@
 	
 <div style="background-color: #fafafa; width: 100%; padding-top: 4px">
 	<div class="container">
-	<h4>Tutorials</h4>
-	<p>Why not try one of our projects? Learn a bit about coding and see what your device is capable of! Maybe challenge a friend to see who can make theirs the best?</p>
-    
+   <br>
 	<div class="row">
-        {% for project in structuredprojects %}
+		<div class="col s12 m6">
+			  <div class="card small z-depth-3 blue-grey" style="border-radius: 15px; overflow: hidden">
+				<div class="col">
+				  <h4 class="white-text">Tutorials</h4>
+
+				  <p class="white-text">Why not try one of our projects? Learn a bit about coding and see what your device is capable of! Maybe challenge a friend to see who can make theirs the best?</p>
+				  </div>
+			<div class="card-action">
+				<a class="btn z-depth-0 white blue-grey-text" style="border-radius: 20px" href="">View All Tutorials</a>
+			</div>
+			  </div>
+		  </div>
+		
+        {% for project in structuredprojects|slice:":3" %}
+		
         <div class="col s12 m6">
             <a href={{ project.slug }} style="color: #000">
                 <div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
                   <div class="col" style="width: 50%">
-                    <h4 class="gray-text">{{ project.title }}.</h4>
-                    <p class="gray-text">{{ project.description }}<p>
+                    <h4>{{ project.title }}.</h4>
+                    <p>{{ project.description }}<p>
                   </div>
               
                   <div class="col" style="width: 50%; height: 100%; background-color: black;">
@@ -66,43 +78,43 @@
                 </div>
                 </a>
           </div>
+		
         {% endfor %}
+		
         </div>
         
 	</div>
 	
-	
+	<br>
+
 	<div class='container'>
-		<h4>Personal Projects</h4>
-		
-		<p>Get creative and make something amazing! When your done enter it into one of our competeitions for the chance to win amazing prizes.</p>
 		
 
 		<div class="row">
-		<div class="col s12 m4">
-		  <div class="card blue-grey small">
-			<div class="card-content white-text">
-			  <p>I am a very  card. I am good at containing small bits of information.
-			  I am convenient because I require little markup to use effectively.</p>
-			</div>
+		  <div class="col s12 m4">
+			  <div class="card small z-depth-3 blue-grey" style="border-radius: 15px; overflow: hidden">
+				<div class="col">
+				  <h4 class="white-text">Personal Projects</h4>
+
+				  <p class="white-text">Get creative and make something amazing! When your done enter it into one of our competeitions for the chance to win amazing prizes.</p>
+				  </div>
 			<div class="card-action">
-				<a class='waves-effect waves-light action brand blue-grey modal-trigger' href="#modal1">New Project</a>
+				<a class="btn z-depth-0 white blue-grey-text modal-trigger" style="border-radius: 20px" href="#modal1">New Project</a>
 			</div>
+			  </div>
 		  </div>
-		</div>
 			
-		<div class="row">
 			{% for project in personalprojects %}
 			<div class="col s12 m4">
-					<div class="card small orange">
+					<div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
 					  <div class="col">
-						<h4 class="white-text">{{ project.title }}</h4>
-						<p class="white-text">{{ project.description }}<p>
+						<h4>{{ project.title }}</h4>
+						<p>{{ project.description }}<p>
 					  </div>
 					  <div class="card-action">
 						<form action="project" method="POST">
 							{% csrf_token %}
-							<button class="waves-effect waves-light btn" type="submit" name="project-id" value={{ project.id }}>Edit Project</button>
+							<button class="btn z-depth-0 blue-grey" style="border-radius: 20px" type="submit" name="project-id" value={{ project.id }}>Edit Project</button>
 						</form>
 					  </div>
 					</div>
@@ -127,12 +139,11 @@
 			{{form}}
 			<br>
 			<br>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Create Project</button>
+			<button class="btn z-depth-0 blue-grey" style="border-radius: 20px" type="submit" name="action">Create Project</button>
 
 		</form>
     </div>
   </div>
 	
-{% endblock %}
-
 </div>
+{% endblock %}
