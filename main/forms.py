@@ -21,14 +21,15 @@ class EditProjectForm(ModelForm):
         model = PersonalProject
         fields = ['title', 'description','code']
         widgets = {
-            'code': AceWidget(mode='python', theme='crimson_editor', width="500px", height="300px",),
+            'code': AceWidget(mode='python', theme='xcode',width="100%", height="425px", fontsize="14px")
         }
 
 
 class StructuredProjectForm(ModelForm):
     class Meta:
+
         model = StructuredProjectCode
         fields = ['code']
         widgets = {
-            'code': AceWidget(mode='python', theme='crimson_editor', width="700px", height="600px",),
+            'code': AceWidget(mode='python', theme='xcode', width="100%", height="525px", fontsize="14px")
         }

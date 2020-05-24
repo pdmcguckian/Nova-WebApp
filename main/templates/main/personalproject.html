@@ -7,17 +7,44 @@
 	</head>
 	<body>
 	<div class="container">
+		<div class="row">
+		<div class="col s12 m6 l4">
+			<div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
+				<div class="col">
+				  <h4>Module Guide</h4>
+				  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+				  </div>
+				<div class="card-tabs">
+				  <ul class="tabs tabs-fixed-width">
+					<li class="tab"><a href="#test4">Drive</a></li>
+					<li class="tab"><a  href="#test5">CV</a></li>
+					<li class="tab"><a href="#test6">Microphone</a></li>
+					<li class="tab"><a href="#test7">Speaker</a></li>
+					<li class="tab"><a href="#test8">Screen</a></li>
+				  </ul>
+				</div>
+				<div class="card-content grey lighten-4">
+				  <div id="test4">Test 1</div>
+				  <div id="test5">Test 2</div>
+				  <div id="test6">Test 3</div>
+				  <div id="test7">Test 2</div>
+				  <div id="test8">Test 3</div>
+				</div>
+			  </div>
+		  </div>
+		
+		<div class="col s12 m6 l8">
 		
 		<form method="POST">
 
 			{% csrf_token %}
 			{{form.as_p}}
-			<br>
-			<br>
-			<button type="submit" class="waves-effect waves-light btn" name="project-save-id" value={{ projid }}>Save</button>
+
+			<button type="submit" class="btn z-depth-0 blue-grey" style="border-radius: 20px; float: right" name="project-save-id" value={{ projid }}>Save</button>
 
 		</form>
-	
+		</div>
+	</div>
 	</div>
 </body>
 {% endblock %}
