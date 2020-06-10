@@ -8,7 +8,7 @@
 <body>
 	
 	<nav>
-		<div class="nav-wrapper blue-grey lighten-2">
+		<div class="nav-wrapper" style="background-color: #5C3E91">
 		  <div class="col s12">
 			<div class="container">
 			<a href="/" class="breadcrumb">Dashboard</a>
@@ -28,7 +28,6 @@
 		
 		<br>
 		
-
 		<ul class="collapsible popout">
 			{% for c in content %}
 			<li>
@@ -43,7 +42,7 @@
 						<form action={{ edit }} method="POST">
 							{% endwith %}
 							{% csrf_token %}
-							<button class="waves-effect waves-light btn-floating btn-large blue-grey" type="submit" name="step_no" value={{ c.step }}><i class="material-icons right">arrow_forward</i></button>
+							<button class="waves-effect waves-light btn-floating btn-large" type="submit" name="step_no" value={{ c.step }} style=" background-color: #552C86"><i class="material-icons right">arrow_forward</i></button>
 						</form>
 						</div>
 					</div>

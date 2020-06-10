@@ -9,26 +9,29 @@
 	<div class="container">
 		<div class="row">
 		<div class="col s12 m6 l4">
-			<div class="card small z-depth-3" style="border-radius: 15px; overflow: hidden">
+			<div class="card large z-depth-3" style="border-radius: 15px; overflow: hidden">
 				<div class="col">
 				  <h4>Module Guide</h4>
-				  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+				  <p>Nova has loads of built in functions to control its functions. To use them write:</p>
+				  <p><b>from nova import <i>module</i></b></p>
+				  <p>where <i>module</i> is one of the following.</p>
 				  </div>
 				<div class="card-tabs">
-				  <ul class="tabs tabs-fixed-width">
-					<li class="tab"><a href="#test4">Drive</a></li>
-					<li class="tab"><a  href="#test5">CV</a></li>
-					<li class="tab"><a href="#test6">Microphone</a></li>
-					<li class="tab"><a href="#test7">Speaker</a></li>
-					<li class="tab"><a href="#test8">Screen</a></li>
+				  <ul class="tabs tabs-fixed-width grey lighten-4">
+					<li class="tab"><a href="#drive" style="color: #5C3E91">Drive</a></li>
+					<li class="tab"><a href="#sense" style="color: #5C3E91">Sense</a></li>
+					<li class="tab"><a href="#hear" style="color: #5C3E91">Hear</a></li>
+					<li class="tab"><a href="#sound" style="color: #5C3E91">Sound</a></li>
+					<li class="tab"><a href="#screen" style="color: #5C3E91">Screen</a></li>
+				    <li class="tab"><a href="#CV" style="color: #5C3E91">CV</a></li>
 				  </ul>
 				</div>
-				<div class="card-content grey lighten-4">
-				  <div id="test4">Test 1</div>
-				  <div id="test5">Test 2</div>
-				  <div id="test6">Test 3</div>
-				  <div id="test7">Test 2</div>
-				  <div id="test8">Test 3</div>
+				<div class="card-content">
+				  <div id="drive"><p><b>drive = Drive()</b></p><br><p><b>drive.forward(<i>speed</i>, <i>time</i>)</b></p><br><p><b>drive.backward(<i>speed</i>, <i>time</i>)</b></p><br><p><b>drive.left(<i>angle</i>)</b></p><br><p><b>drive.right(<i>angle</i>)</b></p></div>
+				  <div id="hear">Test 2</div>
+				  <div id="sound">Test 3</div>
+				  <div id="screen">Test 2</div>
+				  <div id="CV">Test 3</div>
 				</div>
 			  </div>
 		  </div>
@@ -40,7 +43,7 @@
 			{% csrf_token %}
 			{{form.as_p}}
 
-			<button type="submit" class="btn z-depth-0 blue-grey" style="border-radius: 20px; float: right" name="project-save-id" value={{ projid }}>Save</button>
+			<button type="submit" class="btn z-depth-0" style="border-radius: 20px; float: right;  background-color: #5C3E91" name="project-save-id" value={{ projid }}>Save</button>
 
 		</form>
 		</div>
