@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'edp',
         'USER': 'user',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'mysql://bcb5aba4b40656:f0ac0ebe@us-cdbr-east-02.cleardb.com/heroku_0bc5ffb0239e804?reconnect=true',
         'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
