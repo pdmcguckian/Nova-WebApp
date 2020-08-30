@@ -93,14 +93,16 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 #         'OPTIONS': {
 #             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
 # }}}
+
+
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': "",
-        'PORT': '',
+        'USER': 'bcb5aba4b40656',
+        'PASSWORD': 'f0ac0ebe',
+        'HOST': "us-cdbr-east-02.cleardb.com",
+        'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
 }}}
@@ -108,7 +110,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
-
+# mysql://bcb5aba4b40656:f0ac0ebe@us-cdbr-east-02.cleardb.com/heroku_0bc5ffb0239e804
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
