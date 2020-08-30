@@ -81,13 +81,25 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
+# DATABASES = {
+#         'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'edp',
+#         'USER': 'user',
+#         'PASSWORD': 'password',
+#         'HOST': "us-cdbr-east-02.cleardb.com"
+#         'PORT': '',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+# }}}
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'edp',
-        'USER': 'user',
-        'PASSWORD': 'password',
-        'HOST': 'mysql://bcb5aba4b40656:f0ac0ebe@us-cdbr-east-02.cleardb.com/heroku_0bc5ffb0239e804?reconnect=true',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': "",
         'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
