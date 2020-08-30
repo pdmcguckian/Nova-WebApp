@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'django_ace',
-    'django.forms'
+    'django.forms',
+    'main'
 ]
 
 MIDDLEWARE = [
