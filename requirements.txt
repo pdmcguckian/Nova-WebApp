@@ -12,4 +12,5 @@ setuptools==46.0.0
 wheel==0.34.2
 django-heroku
 gunicorn
+whitenoise
 
