@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% load static %}
 
 	
 	<div style="padding-left: 5%; padding-right: 5%">
@@ -9,12 +10,8 @@
   <tbody>
     <tr>
 		<td width = "50%"><h4>Hey {{user.first_name}}.</h4>
-		<p>You currently have 3 personal projects visible to friends. Since you have been offline your friends <i>omcolebourne</i>, and <i>etang</i> have shared new projects.</p>
-			
-		<p>You are eligible to enter the <i>UK Under 11s CV Competition</i>. Submissions close in 8 days. Why not enter a project?</p>
-			
-		<p>We have just posted a new tutorial <i>Colour Magnet</i> based around Computer Visioin and Motor Control. We think it should take around 60 minutes.</p>
-		
+		<p>You are eligible to enter the <i>UK Under 11s CV Competition</i>. Submissions close in 8 days. Why not enter a project?</p>			
+		<p>We have just posted a new tutorial 'Obstacle Avoid' based around Sensors and Motor Control. We think it should take around 60 minutes.</p>
 	</td>
       <td width=50%><div class="col" style="width: 100%; height: 100%">
 		</div>    
@@ -22,16 +19,7 @@
     </tr>
   </tbody>
 </table>
-		<br>
-			
-		<div style="display: flex; justify-content: space-between;">
-			<a class="btn-small z-depth-0 modal-trigger"  style="border-radius: 20px; background-color: #552C86" href="#pairdevice">Pair Device</a>
-			<a class="btn-small z-depth-0"  style="border-radius: 20px;  background-color: #552C86" href="">View Friends Code</a>
-			<a class="btn-small z-depth-0"  style="border-radius: 20px;  background-color: #552C86" href="">Competitions</a>
-			<a class="btn-small z-depth-0"  style="border-radius: 20px;  background-color: #552C86" href="">My Friends</a>
-			<a class="btn-small z-depth-0"  style="border-radius: 20px;  background-color: #552C86" href="">Customise Device</a>
-		</div>
-		<br>
+
 	</div>
 	
 <div style="background-color: #fafafa; width: 100%; padding-top: 4px">
@@ -61,8 +49,8 @@
                     <p>{{ project.description }}<p>
                   </div>
               
-                  <div class="col" style="width: 50%; height: 100%; background-color: black;">
-                  <p class="white-text">Video</p>
+                  <div class="col" style="width: 50%; height: 110%; margin: -2px 0 -2px -10px">
+				  <img height="100%" src="{% static 'StructuredProj.jpg' %}" alt="My image"> 
                   </div>
                 </div>
                 </a>
@@ -152,7 +140,6 @@
 				</div>
 				<div class="col s12 m6" style="text-align: center; display: block;">
 				
-					{% load static %}
 				<img width="100%" src="{% static "QR.png" %}" alt="My image" style="max-width: 220px"> 
 				
 				</div>
